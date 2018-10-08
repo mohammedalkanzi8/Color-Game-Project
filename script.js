@@ -1,19 +1,15 @@
-var colors = [
-	"rgb(255, 0, 0)",
-	"rgb(255, 255, 0)",
-	"rgb(0, 255, 0)",
-	"rgb(0, 255, 255)",
-	"rgb(0, 0, 2550",
-	"rgb(255, 0, 255)",
-]
+var colors = generateRandomColors(6);
 
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
+var h1 = document.querySelector("h1");
 
 colorDisplay.textContent = pickedColor;
-
+// *********************************************************
+// For Loob to Loop Through the array Elements
+// *********************************************************
 for(var i = 0; i < squares.length; i++){
 	// Add initial Color
 	squares[i].style.background = colors[i];
@@ -25,6 +21,7 @@ for(var i = 0; i < squares.length; i++){
 		if (clickedColor === pickedColor) {
 			messageDisplay.textContent = "Correct";
 			changeColor(clickedColor);
+			h1.style.background = clickedColor;
 		} else {
 			this.style.background = "#232323";
 			messageDisplay.textContent = "Try Again";
@@ -32,7 +29,9 @@ for(var i = 0; i < squares.length; i++){
 
 	});
 }
+// *********************************************************
 // All the squares match the correct color
+// *********************************************************
 function changeColor(color) {
 	// Loop through colors
 	for(var i = 0; i < squares.length; i++) {
@@ -40,8 +39,35 @@ function changeColor(color) {
 		
 	}
 }
-// Random function to pick a color 
+// *********************************************************
+// Random function to pick a color
+// ********************************************************* 
 function pickColor(){
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];
+}
+// *********************************************************
+// Repeat for num times and push to array
+// *********************************************************
+function generateRandomColors(num){
+	// Make an Array
+	var arr = [];
+	// repeat for num times
+	for (var i = 0; i < num; i++){
+		arr.push(randomColor())
+	}
+	// return num
+	return arr;
+}
+// *********************************************************
+// // Generate Random Colors
+// *********************************************************
+function randomColor () {
+	// Generate Red from 0 - 255
+	var r = Math.floor(Math.random() * 256);
+	// Generate Green from 0 - 255
+	var g = Math.floor(Math.random() * 256);
+	// Generate Blue from 0 - 255
+	var b = Math.floor(Math.random() * 256);
+	return "rgb(" + r + ", " + g + ", " + b + ")"
 }
