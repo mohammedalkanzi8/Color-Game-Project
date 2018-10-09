@@ -1,15 +1,76 @@
-var colors = generateRandomColors(6);
-
+var numSquare = 6;
+var colors = generateRandomColors(numSquare);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
+var easyBtn = document.getElementById("easyBtn");
+var hardBtn = document.getElementById("hardBtn");
 
+// *********************************************************
+// Easy Button
+// *********************************************************
+easyBtn.addEventListener("click", function(){
+	easyBtn.classList.add("selected")
+	hardBtn.classList.remove("selected")
+	// Generate the 3 colores
+	numSquare = 3;
+	colors = generateRandomColors(numSquare);
+	// pick a new random colors
+	pickedColor = pickColor();
+	// change text content colors rgb
+	colorDisplay.textContent = pickedColor;
+	// Reset the button
+	resetButton.textContent = "New Colors";
+	// Reset the span
+	messageDisplay.textContent = "";
+	// Change the h1 backgrond to defualt
+	h1.style.background = "#232323";
+	// change the squares colors
+	for(var i = 0; i < squares.length; i++){
+	// If condition to select first 3 elements
+	if (colors[i]) {
+		squares[i].style.background = colors[i];
+	} else {
+		squares[i].style.display = "none";
+	};
+		
+	}
+});
+// *********************************************************
+// Hard Button
+// *********************************************************
+hardBtn.addEventListener("click", function(){
+	hardBtn.classList.add("selected")
+	easyBtn.classList.remove("selected")
+	// Generate the 6 colores
+	numSquare = 6;
+	colors = generateRandomColors(numSquare);
+	// pick a new random colors
+	pickedColor = pickColor();
+	// change text content colors rgb
+	colorDisplay.textContent = pickedColor;
+	// Reset the button
+	resetButton.textContent = "New Colors";
+	// Reset the span
+	messageDisplay.textContent = "";
+	// Change the h1 backgrond to defualt
+	h1.style.background = "#232323";
+	// change the squares colors
+	for(var i = 0; i < squares.length; i++){
+	// If condition to select first 3 elements
+		squares[i].style.background = colors[i];
+		squares[i].style.display = "block";
+	};
+});
+// *********************************************************
+// Reaset Button
+// *********************************************************
 resetButton.addEventListener("click", function(){
 	// Generate all new colors
-	colors = generateRandomColors(6);
+	colors = generateRandomColors(numSquare);
 	// pick a new random colors
 	pickedColor = pickColor();
 	// change text content colors rgb
