@@ -27,7 +27,7 @@ easyBtn.addEventListener("click", function(){
 	// Reset the span
 	messageDisplay.textContent = "";
 	// Change the h1 backgrond to defualt
-	h1.style.background = "#232323";
+	h1.style.background = "steelblue";
 	// change the squares colors
 	for(var i = 0; i < squares.length; i++){
 	// If condition to select first 3 elements
@@ -57,7 +57,7 @@ hardBtn.addEventListener("click", function(){
 	// Reset the span
 	messageDisplay.textContent = "";
 	// Change the h1 backgrond to defualt
-	h1.style.background = "#232323";
+	h1.style.background = "steelblue";
 	// change the squares colors
 	for(var i = 0; i < squares.length; i++){
 	// If condition to select first 3 elements
@@ -80,7 +80,7 @@ resetButton.addEventListener("click", function(){
 	// Reset the span
 	messageDisplay.textContent = "";
 	// Change the h1 backgrond to defualt
-	h1.style.background = "#232323";
+	h1.style.background = "steelblue";
 	// change the squares colors
 	for(var i = 0; i < squares.length; i++){
 	// Add initial Color
